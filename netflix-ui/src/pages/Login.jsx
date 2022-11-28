@@ -11,19 +11,26 @@ import { firebaseAuth } from "../utils/firebase-config";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(firebaseAuth, email, password);
     } catch (error) {
-      console.log(error.code);
+      setErrorMessage("Wrong Email/Password! Try again!")
     }
   };
 
   onAuthStateChanged(firebaseAuth, (currentUser) => {
     if (currentUser) navigate("/");
   });
+  
+  const timeout = document.getElementsByClassName('error_back')
+  setTimeout(hideElement, 3500) 
+  function hideElement() {
+    setErrorMessage('');
+  }
 
   return (
     <Container>
@@ -48,6 +55,11 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
               />
+              {errorMessage && (
+                <div className="error_back">
+                <p className="error"> {errorMessage} </p>
+                </div>
+              )}
               <button onClick={handleLogin}>Login to your account</button>
             </div>
           </div>
@@ -81,6 +93,18 @@ const Container = styled.div`
           input {
             padding: 0.5rem 1rem;
             width: 15rem;
+          }
+          .error{ 
+            color: white; 
+            font-size: 15px; 
+            font-family: arial; 
+            font-weight:200;
+          }
+          .error_back{
+            background-color: #E50914; 
+            padding: 7px;
+            border: solid #E50914; 
+            margin-top: 6px;
           }
           button {
             padding: 0.5rem 1rem;

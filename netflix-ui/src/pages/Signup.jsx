@@ -10,6 +10,7 @@ import Header from "../components/Header";
 import { firebaseAuth } from "../utils/firebase-config";
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
@@ -21,13 +22,19 @@ function Signup() {
       const { email, password } = formValues;
       await createUserWithEmailAndPassword(firebaseAuth, email, password);
     } catch (error) {
-      console.log(error);
+      setErrorMessage("Wrong email/password! Please try again!")
     }
   };
 
   onAuthStateChanged(firebaseAuth, (currentUser) => {
     if (currentUser) navigate("/");
   });
+
+  const timeout = document.getElementsByClassName('error_back')
+  setTimeout(hideElement, 3500) 
+  function hideElement() {
+    setErrorMessage('');
+  }
 
   return (
     <Container showPassword={showPassword}>
@@ -67,13 +74,18 @@ function Signup() {
                 }
                 name="password"
                 value={formValues.password}
-              />
-            )}
+              />)}
+              {errorMessage && (
+                <div className="error_back">
+                <p className="error"> {errorMessage} </p>
+                </div>
+              )}
+            
             {!showPassword && (
               <button onClick={() => setShowPassword(true)}>Get Started</button>
             )}
           </div>
-          {showPassword && <button onClick={handleSignIn}>Log In</button>}
+          {showPassword && <button onClick={handleSignIn}>Sign Up</button>}
         </div>
       </div>
     </Container>
@@ -100,6 +112,18 @@ const Container = styled.div`
         h1 {
           padding: 0 25rem;
         }
+      }
+      .error{ 
+        color: white; 
+        font-size: 25px; 
+        font-family: arial; 
+        font-weight:400;
+      }
+      .error_back{
+        background-color: #E50914; 
+        padding: 7px;
+        border: solid #E50914; 
+        margin-top: 6px;
       }
       .form {
         display: grid;

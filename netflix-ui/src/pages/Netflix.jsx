@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
-import backgroundImage from "../assets/home.jpg";
-import MovieLogo from "../assets/homeTitle.webp";
+import backgroundImage from "../assets/home.webp";
+import MovieLogo from "../assets/homeTitle.png";
 
 import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase-config";
@@ -51,7 +51,7 @@ function Netflix() {
         />
         <div className="container">
           <div className="logo">
-            <img src={MovieLogo} alt="Movie Logo" />
+            <img src={MovieLogo} alt="Movie Logo" style={{height:"50%", width:"50%"}} />
           </div>
           <div className="buttons flex">
             <button

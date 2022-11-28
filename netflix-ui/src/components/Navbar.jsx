@@ -2,7 +2,7 @@ import { signOut } from "firebase/auth";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import { firebaseAuth } from "../utils/firebase-config";
 import { FaPowerOff, FaSearch } from "react-icons/fa";
 export default function Navbar({ isScrolled }) {
@@ -55,9 +55,13 @@ export default function Navbar({ isScrolled }) {
               }}
             />
           </div>
+          <div className="logout">
           <button onClick={() => signOut(firebaseAuth)}>
-            <FaPowerOff />
+            <p>
+              Logout
+            </p>
           </button>
+          </div>
         </div>
       </nav>
     </Container>
@@ -97,6 +101,15 @@ const Container = styled.div`
           }
         }
       }
+    }
+    .logout{
+      background-color: #E50914; 
+      padding: 6px;
+    }
+    p{
+      font-size: 16px; 
+      color:white;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     }
     .right {
       gap: 1rem;
