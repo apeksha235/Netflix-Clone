@@ -19,7 +19,7 @@
 6. **Future Scope**: 
    - Can add a recommendation system according to user preferences for easy search.  
    - Can add a trailer for every show/movie dynamically. 
-7. Screenshots: 
+7. **Screenshots**: 
    - Sign Up page: 
    ![image](https://user-images.githubusercontent.com/84583787/204921434-5513a849-0618-4a0d-9833-92279340b635.png)
 
@@ -40,5 +40,6 @@
    - My List page: 
    ![image](https://user-images.githubusercontent.com/84583787/204924490-9eddb70b-2a9d-4515-b37a-0ced767b6911.png)
 
-
-
+8. **Authors**: 
+   - Apeksha Hegde- 16010120124
+   - Hrishik Sancheti- 16010120134
