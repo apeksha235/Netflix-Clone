@@ -2,7 +2,13 @@
 
 1. **Database used**: MongoDB 
 2. **Authentication**: Firebase 
-3. **Front-End**: React 
+3. **Front-End**:
+   - Sign Up page 
+   - Login page 
+   - Home Page 
+   - TV shows page 
+   - Movies page 
+   - My List page
 4. **Features**: 
    - Safe authentication using Firebase
    - Search for TV shows/Movies seperately 
@@ -13,8 +19,12 @@
 6. **Future Scope**: 
    - Can add a recommendation system according to user preferences for easy search.  
    - Can add a trailer for every show/movie dynamically. 
-7. **Authors**: 
-   - Apeksha Hegde- 16010120124 
-   - Hrishik Sancheti- 16010120134
+7. Screenshots: 
+   - Sign Up page: 
+   - Login page: 
+   - Home page: 
+   - TV Shows page: 
+   - Movies page: 
+   - My List page: 
 
 

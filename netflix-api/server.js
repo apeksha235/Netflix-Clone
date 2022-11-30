@@ -14,7 +14,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("DB Connetion Successfull");
+    console.log("DB Connection Successfull");
   })
   .catch((err) => {
     console.log(err.message);
@@ -22,6 +22,6 @@ mongoose
 
 app.use("/api/user", userRoutes);
 
-app.listen(5000, () => {
-  console.log("server started on port 5000");
+app.listen(3000, () => {
+  console.log("server started on port 3000");
 });
