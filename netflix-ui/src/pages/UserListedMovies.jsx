@@ -38,7 +38,7 @@ export default function UserListedMovies() {
       <div className="content flex column">
         <h1>My List</h1>
         <div className="grid flex">
-          {movies.map((movie, index) => {
+          {movies? (movies.map((movie, index) => {
             return (
               <Card
                 movieData={movie}
@@ -47,7 +47,9 @@ export default function UserListedMovies() {
                 isLiked={true}
               />
             );
-          })}
+          })):
+          <p className="none_message">Nothing added to the list!</p>
+          }
         </div>
       </div>
     </Container>
@@ -66,5 +68,13 @@ const Container = styled.div`
       flex-wrap: wrap;
       gap: 1rem;
     }
+  }
+
+  .none_message{ 
+    font-size: 35px; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight:500;
+    margin-left:35%;
+    margin-top:5%;
   }
 `;
